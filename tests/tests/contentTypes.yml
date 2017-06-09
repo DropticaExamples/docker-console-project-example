@@ -1,0 +1,47 @@
+ContentTypes:
+  article:
+    humanName: Article
+    machineName: article
+    fields:
+      title:
+        machineName: title
+        label: Title
+        type: 'Node module element'
+        selector: edit-title
+      body:
+        machineName: body
+        label: Body
+        type: 'Long text and summary'
+        widget: 'Text area with a summary'
+        required: false
+        selector: edit-body-und
+      field_tags:
+        machineName: field_tags
+        label: Tags
+        type: 'Term reference'
+        widget: 'Autocomplete term widget (tagging)'
+        required: false
+      field_image:
+        machineName: field_image
+        label: Image
+        type: Image
+        widget: Image
+        required: false
+    submit: '#edit-submit'
+  page:
+    humanName: 'Basic page'
+    machineName: page
+    fields:
+      title:
+        machineName: title
+        label: Title
+        type: 'Node module element'
+        selector: edit-title
+      body:
+        machineName: body
+        label: Body
+        type: 'Long text and summary'
+        widget: 'Text area with a summary'
+        required: false
+        selector: edit-body-und
+    submit: '#edit-submit'
