@@ -2,8 +2,6 @@
 .idea
 *.pyc
 
-app
-
 app_data/*
 !app_data/README.txt
 
