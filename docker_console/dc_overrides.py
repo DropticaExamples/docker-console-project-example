@@ -33,3 +33,18 @@
 #         'drush.uli'
 #     ],
 # }
+
+commands_overrides = {
+ 
+    'build-in-docker': [
+        'archive.unpack_files(True)',
+       
+        'database.drop_db',
+        'database.create_db',
+        'database.import_db',
+
+        'drush.updb',
+
+        'drush.uli'
+    ]
+}
