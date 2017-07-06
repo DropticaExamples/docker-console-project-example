@@ -32,9 +32,6 @@ trait UserCommonSteps
     $I->fillField(UserLoginPage::$loginFormUsername, $username);
     $I->fillField(UserLoginPage::$loginFormPassword, $password);
     $I->click('Log in');
-    $I->seeCurrentUri();
-    $I->seeCurrentUrlEquals('/');
-    $I->see('Log out');
   }
 
   /**

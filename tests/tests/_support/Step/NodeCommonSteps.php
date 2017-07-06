@@ -52,7 +52,7 @@ trait NodeCommonSteps
     $I = $this;
 
     // Grab the node id from the Edit tab once the node has been saved.
-    $edit_url = $I->grabAttributeFrom('ul.tabs--primary > li:nth-child(2) > a', 'href');
+    $edit_url = $I->grabAttributeFrom('ul.tabs.primary > li:nth-child(2) > a', 'href');
     $matches = array();
 
     if (preg_match('~/node/(\d+)/edit~', $edit_url, $matches)) {

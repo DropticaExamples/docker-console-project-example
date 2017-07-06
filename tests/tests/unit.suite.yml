@@ -10,3 +10,11 @@ modules:
         - \Codeception\Module\Drupal7\Drupal7:
             root: '/app/app'
             relative: no
+        - Db:
+             dsn: 'mysql:host=mysql;dbname=db'
+             user: 'user'
+             password: 'pass'
+             dump: 'tests/_data/dump.sql'
+             populate: false
+             cleanup: false
+             reconnect: true
