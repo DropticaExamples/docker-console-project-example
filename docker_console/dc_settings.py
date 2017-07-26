@@ -30,7 +30,7 @@ DB = {
 
 TESTS = {
     'IMAGES': {
-        'selenium_image': ('selenium/standalone-chrome', None),
+        'selenium_image': ('selenium/standalone-firefox:2.53.1', None),
         'codecept_image': ('droptica/codecept', None)
     },
     'LOCATION': "tests"

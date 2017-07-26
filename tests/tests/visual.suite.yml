@@ -1,0 +1,14 @@
+actor: VisualTester
+modules:
+    enabled:
+        - \Helper\Visual
+        - WebDriver:
+             host: selenium
+             url: http://web
+             browser: firefox
+             curl:
+                 CURLOPT_TIMEOUT: 1200
+        - VisualCeption:
+            maximumDeviation: 0                                 
+            saveCurrentImageIfFailure: true  
+            report: true

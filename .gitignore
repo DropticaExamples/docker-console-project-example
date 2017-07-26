@@ -12,3 +12,6 @@ app_files/*
 !app_files/README.txt
 
 docker/custom_images/hashes.yml
+tests/tests/_data/VisualCeption/*
+tests/tests/_output/*
+

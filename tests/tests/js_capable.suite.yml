@@ -18,7 +18,7 @@ modules:
         - WebDriver:
              host: selenium
              url: http://web
-             browser: chrome
+             browser: firefox
              curl:
                  CURLOPT_TIMEOUT: 1200
         - \Helper\Acceptance
