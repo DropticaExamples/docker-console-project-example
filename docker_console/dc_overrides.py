@@ -37,6 +37,7 @@
 commands_overrides = {
  
     'build-in-docker': [
+        'drupal_settings.copy_settings("drupal7")',
         'archive.unpack_files(True)',
        
         'database.drop_db',
