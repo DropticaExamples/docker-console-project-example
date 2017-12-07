@@ -1,38 +1,19 @@
+
 # # import classes to override
-# from docker_console.web.engines.drupal7.drush import Drush
-# from docker_console.web.engines.drupal7.builder import Builder
-#
-# # add new methods
-# class DrushLocal:
-#     def localtest(self, text):
-#         print text
-#
-# Drush.__bases__ += (DrushLocal,)
-#
-# class BuilderLocal:
-#     def printlocal(self):
-#         self.drush.localtest('printlocal')
-#
-# Builder.__bases__ += (BuilderLocal,)
-#
-# # override existing method
-# def drush_uli_local(self):
-#     print self.config.DRUPAL[self.config.drupal_site]['ADMIN_USER']
-#
-# Drush.uli = drush_uli_local
-#
-#
-# # replace/add new commands
-# commands_overrides = {
-#     'localtest': [
-#         'confirm_action',
-#         'drush.localtest("upwd %s --password=123" % self.config.DRUPAL[self.config.drupal_site]["ADMIN_USER"])'
-#     ],
-#     'drush_uli': [
-#         'confirm_action("no")',
-#         'drush.uli'
-#     ],
-# }
+from docker_console.web.engines.drupal7.builder import Builder
+
+class BuilderLocal:
+    def enable_mailcatcher(self):
+        self.drush.en("mailsystem")
+        self.drush.en("smtp")
+        self.drush.run("vset -y 'smtp_host' 'mailcatcher'")
+        self.drush.run("vset -y 'smtp_on' 1")
+        self.drush.run("vset -y 'smtp_protocol' 'standard'")
+        self.drush.run("vset -y 'smtp_port' 1025")
+        self.drush.run("vdel -y 'smtp_username'")
+        self.drush.run("vdel -y 'smtp_password'")
+
+Builder.__bases__ += (BuilderLocal,)
 
 commands_overrides = {
  
@@ -43,7 +24,7 @@ commands_overrides = {
         'database.drop_db',
         'database.create_db',
         'database.import_db',
-
+        'enable_mailcatcher',
         'drush.updb',
 
         'drush.uli'

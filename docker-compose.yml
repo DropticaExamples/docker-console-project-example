@@ -5,6 +5,7 @@ web:
 #    - ./docker/custom_config/php.ini:/usr/local/etc/php/conf.d/php.ini:ro # enable xdebug
   links:
     - mysql:mysql
+    - mailcatcher:mailcatcher
   environment:
     VIRTUAL_HOST: codeceptiondropticaexample.dev,www.codeceptiondropticaexample.dev
 
@@ -25,3 +26,6 @@ phpmyadmin:
     - mysql:mysql
   environment:
       VIRTUAL_HOST: phpmyadmin.codeceptiondropticaexample.dev
+
+mailcatcher:
+  image: droptica/mailcatcher
